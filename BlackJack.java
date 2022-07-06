@@ -164,7 +164,7 @@ public class BlackJack {
 		do{ // Game loop
 			buildDeck(deck);  // Initializes the deck for a new game
 		    initialDeal(deck, playerHand, dealerHand);
-			//check initial states
+//			check initial states
 //			System.out.println(displayHand(deck));
 //			System.out.println(deck.size());
 //			System.out.println(displayHand(playerHand));
@@ -221,6 +221,7 @@ public class BlackJack {
 
 		    if(!isBusted){ // Continues if player hasn't busted
 				dealerBusted = dealerTurn(deck, dealerHand);
+//			System.out.println(displayHand(dealerHand));
 				if(dealerBusted){ // Case: Dealer Busts
 				    playerChoice = JOptionPane.showConfirmDialog(
 				    	null, 
