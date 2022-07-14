@@ -14,7 +14,6 @@ public class BlackJack {
 
     // fill in code here
     // define data members
-
     
     public static void buildDeck(ArrayList<Card> deck) {
 	// fill in code here
@@ -32,6 +31,7 @@ public class BlackJack {
     public static void initialDeal(ArrayList<Card> deck, ArrayList<Card> playerHand, ArrayList<Card> dealerHand){
 	// fill in code here
 	// Deal two cards from the deck into each of the player's hand and dealer's hand
+
 		// Shuffle and Deal from the end of the deck
 		Collections.shuffle(deck);
 		playerHand.clear();
@@ -40,6 +40,7 @@ public class BlackJack {
 		playerHand.add(deck.get(deck.size() - 2));
 		dealerHand.add(deck.get(deck.size() - 3));
 		dealerHand.add(deck.get(deck.size() - 4));
+		// Remove cards that have been given out
 		for (int i = 0; i < 4; i++) {
 			deck.remove(deck.size() - 1);
 		}
@@ -98,7 +99,8 @@ public class BlackJack {
 
     // fill in code here (Optional)
     // feel free to add methods as necessary
-	// add a method to convert the card number from string to integer
+
+	// Convert the count from string to integer for further calculation
 	public static int parseInt(String str){
 		int num;
 		if (str.equals("J") ||str.equals("Q")||str.equals("K")){
@@ -109,6 +111,7 @@ public class BlackJack {
 		return num;
 	}
 
+	// Sum the card in hand considering the special value of Ace
 	public static int sum(ArrayList<Card> hand){
 		int sum = 0;
 		boolean hasA = false;
@@ -118,13 +121,13 @@ public class BlackJack {
 				hasA = true;
 			}
 		}
-		if (sum < 11 && hasA){
+		if (sum <= 11 && hasA){
 			sum = sum + 10;
 		}
 		return sum;
 	}
 
-	//test method
+	//test method for edge cases
 	public static void test_initialDeal(ArrayList<Card> deck, ArrayList<Card> playerHand, ArrayList<Card> dealerHand){
 		playerHand.clear();
 		dealerHand.clear();
@@ -170,7 +173,6 @@ public class BlackJack {
 //			System.out.println(displayHand(playerHand));
 //			System.out.println(displayHand(dealerHand));
 
-			//test edge cases
 //			test_initialDeal(deck, playerHand, dealerHand);
 
 			isPlayerTurn=true;
@@ -279,11 +281,13 @@ class Card {
 
 	private String count;
 	private String suit;
+
 	Card(String count, String suit){
 		// Fill in constructor method
 		this.count = count;
 		this.suit = suit;
 	}
+
 	public String getCount(){
 		return count;
 	}
