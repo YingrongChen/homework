@@ -1,0 +1,5 @@
+Total: 90
+
+Dealer only hits once, even if the value of the hand remains below 17.
+
+The Ace card displays as "1", which isn't really accurate.
